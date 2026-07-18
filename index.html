@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抗炎飲食指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-soft: #52b788;
+    --green-pale: #d8f3dc;
+    --cream: #faf7f2;
+    --warm-white: #ffffff;
+    --text-dark: #1c1c1a;
+    --text-mid: #4a4a45;
+    --text-muted: #8a8a82;
+    --amber: #d4860a;
+    --amber-pale: #fef3cd;
+    --coral: #c0392b;
+    --coral-pale: #fdecea;
+    --blue-pale: #e8f4f8;
+    --blue-mid: #1a6b8a;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--green-deep);
+    padding: 72px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(82,183,136,0.12);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(82,183,136,0.08);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-soft);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .hero h1 span {
+    color: var(--green-soft);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTION */
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid rgba(0,0,0,0.06); }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 32px;
+    line-height: 1.3;
+  }
+
+  /* FOOD CARDS GRID */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .food-card {
+    background: var(--warm-white);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .food-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  }
+  .food-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .food-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .food-card-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+  .food-items {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .food-tip {
+    font-size: 12px;
+    color: var(--green-mid);
+    background: var(--green-pale);
+    border-radius: var(--radius-sm);
+    padding: 7px 10px;
+    line-height: 1.5;
+  }
+  .food-tip::before { content: '💡 '; }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--warm-white);
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 13px 16px;
+    text-align: left;
+  }
+  thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
+  thead th:last-child { border-radius: 0 var(--radius-md) 0 0; }
+  tbody tr { border-bottom: 1px solid rgba(0,0,0,0.05); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--cream); }
+  tbody td { padding: 12px 16px; color: var(--text-mid); vertical-align: top; line-height: 1.6; }
+  tbody td:first-child { color: var(--text-dark); font-weight: 500; }
+
+  /* WEEK PLAN */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .day-card {
+    background: var(--warm-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+  .day-card:hover { transform: translateY(-2px); }
+  .day-header {
+    background: var(--green-mid);
+    padding: 12px 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .day-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .day-en {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .day-body { padding: 14px 16px; }
+  .meal-row { margin-bottom: 11px; }
+  .meal-row:last-child { margin-bottom: 0; }
+  .meal-type {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .meal-content {
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.55;
+  }
+  .day-tip {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 12px;
+    color: var(--green-mid);
+  }
+
+  /* PRINCIPLE BANNER */
+  .principle {
+    background: var(--green-deep);
+    border-radius: var(--radius-lg);
+    padding: 40px 40px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+  .principle-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 4px;
+  }
+  .principle-text h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .principle-text p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+  .principle-text strong { color: var(--green-soft); font-weight: 500; }
+
+  /* TIPS ROW */
+  .tips-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .tip-pill {
+    background: var(--warm-white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .tip-pill .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
+  .tip-pill p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-deep);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 600px) {
+    .principle { flex-direction: column; gap: 16px; padding: 28px 24px; }
+    .food-grid, .week-grid { grid-template-columns: 1fr; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">天然食療 · 由內而外</div>
+  <h1>抗炎<span>飲食</span>指南</h1>
+  <p class="hero-sub">以替換式飲食逐步增加抗炎食物，配合充足休息、運動與減壓，達到最佳效果。</p>
+</div>
+
+<!-- FOOD CATEGORIES -->
+<section>
+  <div class="container">
+    <div class="section-label">食物分類</div>
+    <h2 class="section-title">九大抗炎食物類別</h2>
+    <div class="food-grid">
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#e8f5e9">🥦</div>
+          <div class="food-card-title">蔬菜</div>
+        </div>
+        <div class="food-items">深色綠葉蔬菜、西蘭花、椰菜花、番茄、菠菜</div>
+        <div class="food-tip">番茄配橄欖油或黑胡椒，可大大提高茄紅素吸收；菠菜配檸檬汁提升鐵質吸收</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#e8f0fb">🫐</div>
+          <div class="food-card-title">水果</div>
+        </div>
+        <div class="food-items">藍莓（花青素）、蘋果（連皮保留槲皮素）</div>
+        <div class="food-tip">蘋果建議選有機，連皮食用效果更好</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#e0f7fa">🐟</div>
+          <div class="food-card-title">魚類 · 海產</div>
+        </div>
+        <div class="food-items">三文魚等深海魚（Omega-3）、海藻、紫菜、海帶</div>
+        <div class="food-tip">Omega-3 可直接抑制發炎因子；海藻調節免疫系統</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#fff8e1">🧄</div>
+          <div class="food-card-title">香料</div>
+        </div>
+        <div class="food-items">薑黃、大蒜（大蒜素）、薑</div>
+        <div class="food-tip">薑黃必須配黑胡椒或油脂，才能有效吸收</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#f3e5f5">🥜</div>
+          <div class="food-card-title">堅果</div>
+        </div>
+        <div class="food-items">核桃、杏仁、巴西堅果</div>
+        <div class="food-tip">原味、無鹽無糖，每日一小把，多樣化輪換</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#fffde7">🫒</div>
+          <div class="food-card-title">油脂</div>
+        </div>
+        <div class="food-items">特級初榨橄欖油</div>
+        <div class="food-tip">不適合高溫煮食；避免葵花油、粟米油、大豆油等 Omega-6 過高植物油</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#fce4ec">🥛</div>
+          <div class="food-card-title">發酵食品</div>
+        </div>
+        <div class="food-items">乳酪、泡菜</div>
+        <div class="food-tip">益生菌改善腸道健康，從而減少系統性發炎</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#e8f5e9">🫘</div>
+          <div class="food-card-title">豆類</div>
+        </div>
+        <div class="food-items">扁豆等優質植物蛋白</div>
+        <div class="food-tip">浸泡後再烹調，可有效減少脹氣</div>
+      </div>
+
+      <div class="food-card">
+        <div class="food-card-header">
+          <div class="food-icon" style="background:#f1f8e9">🍵</div>
+          <div class="food-card-title">其他超級食物</div>
+        </div>
+        <div class="food-items">黑朱古力（85%+）、生蜜 / 麥蘆卡蜜、蛋、綠茶、亞麻籽、燕麥、茴香</div>
+        <div class="food-tip">綠茶茶多酚可延緩衰老，建議每日 2–3 杯</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TABLE SUMMARY -->
+<section>
+  <div class="container">
+    <div class="section-label">速查表</div>
+    <h2 class="section-title">食物功效總覽</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>類別</th>
+            <th>代表食物</th>
+            <th>主要功效</th>
+            <th>食用貼士</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>蔬菜</td>
+            <td>西蘭花、番茄、菠菜、深綠葉菜</td>
+            <td>抗氧化、激活解毒系統、茄紅素抗炎</td>
+            <td>番茄配油脂 / 黑胡椒；菠菜配檸檬汁</td>
+          </tr>
+          <tr>
+            <td>水果</td>
+            <td>藍莓、有機蘋果</td>
+            <td>花青素消炎、槲皮素抗氧化</td>
+            <td>蘋果連皮食用</td>
+          </tr>
+          <tr>
+            <td>魚類 · 海產</td>
+            <td>三文魚、海藻、紫菜、海帶</td>
+            <td>Omega-3 抑制發炎因子、調節免疫</td>
+            <td>每週 2–3 次深海魚</td>
+          </tr>
+          <tr>
+            <td>香料</td>
+            <td>薑黃、大蒜、薑</td>
+            <td>薑黃素強效消炎、大蒜素抗菌</td>
+            <td>薑黃配黑胡椒或油脂</td>
+          </tr>
+          <tr>
+            <td>堅果</td>
+            <td>核桃、杏仁、巴西堅果</td>
+            <td>健康脂肪、抗氧化礦物質</td>
+            <td>原味無鹽，每日一小把</td>
+          </tr>
+          <tr>
+            <td>油脂</td>
+            <td>特級初榨橄欖油</td>
+            <td>多酚消炎、心臟保護</td>
+            <td>低溫或涼拌用；避免高 Omega-6 植物油</td>
+          </tr>
+          <tr>
+            <td>發酵食品</td>
+            <td>乳酪、泡菜</td>
+            <td>益生菌修復腸道、減少發炎</td>
+            <td>選低糖原味版本</td>
+          </tr>
+          <tr>
+            <td>豆類</td>
+            <td>扁豆</td>
+            <td>植物蛋白、穩定血糖</td>
+            <td>浸泡後烹調減少脹氣</td>
+          </tr>
+          <tr>
+            <td>其他</td>
+            <td>黑朱古力、生蜜、蛋、綠茶、亞麻籽、燕麥</td>
+            <td>茶多酚、Omega-3、優質蛋白</td>
+            <td>綠茶每日 2–3 杯；朱古力適量</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY PLAN -->
+<section>
+  <div class="container">
+    <div class="section-label">每週餐單</div>
+    <h2 class="section-title">星期一至日 抗炎食譜</h2>
+    <div class="week-grid">
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期一</span>
+          <span class="day-en">Mon</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">燕麥粥 + 藍莓 + 核桃</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">三文魚沙律（橄欖油 + 菠菜 + 番茄 + 檸檬汁）</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">薑黃雞扒 + 西蘭花 + 糙米</div>
+          </div>
+          <div class="day-tip">🍵 綠茶 2–3 杯</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期二</span>
+          <span class="day-en">Tue</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">原味乳酪 + 蘋果片（連皮）+ 亞麻籽</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">扁豆湯 + 全麥麵包 + 大蒜炒深綠葉菜</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">蒸紫菜卷三文魚 + 薑汁炒椰菜花</div>
+          </div>
+          <div class="day-tip">🍫 85%+ 黑朱古力 1–2 格</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期三</span>
+          <span class="day-en">Wed</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">炒蛋（橄欖油）+ 全麥多士 + 番茄</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">海帶豆腐湯 + 薑黃炒西蘭花</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">烤三文魚 + 菠菜（檸檬汁）+ 烤番茄</div>
+          </div>
+          <div class="day-tip">🥜 杏仁一小把</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期四</span>
+          <span class="day-en">Thu</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">燕麥 + 核桃 + 生蜜少許</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">泡菜炒糙米飯 + 煎蛋</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">大蒜薑炒深海魚 + 茴香沙律 + 扁豆</div>
+          </div>
+          <div class="day-tip">🍵 綠茶</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期五</span>
+          <span class="day-en">Fri</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">藍莓冰沙（乳酪 + 亞麻籽 + 菠菜）</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">薑黃椰菜花湯 + 全麥捲餅 + 大蒜炒菜</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">烤三文魚 + 紫菜沙律 + 橄欖油番茄</div>
+          </div>
+          <div class="day-tip">🌰 巴西堅果 2–3 粒</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期六</span>
+          <span class="day-en">Sat</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">蛋餅 + 大蒜菠菜 + 蘋果（連皮）</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">扁豆沙律 + 海藻湯 + 番茄（橄欖油 + 黑胡椒）</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">薑蒸魚 + 西蘭花炒蒜 + 糙米</div>
+          </div>
+          <div class="day-tip">🍫 85%+ 黑朱古力</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">星期日</span>
+          <span class="day-en">Sun</span>
+        </div>
+        <div class="day-body">
+          <div class="meal-row">
+            <div class="meal-type">早餐</div>
+            <div class="meal-content">燕麥 + 藍莓 + 杏仁 + 麥蘆卡蜜</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">午餐</div>
+            <div class="meal-content">泡菜豆腐湯 + 薑黃炒雜菜 + 全麥飯</div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-type">晚餐</div>
+            <div class="meal-content">烤三文魚 + 茴香番茄沙律 + 海帶湯</div>
+          </div>
+          <div class="day-tip">🍵 綠茶 · 🥜 核桃</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE TIPS -->
+<section>
+  <div class="container">
+    <div class="section-label">生活習慣</div>
+    <h2 class="section-title">配合飲食，效果加倍</h2>
+
+    <div class="principle">
+      <div class="principle-icon">🌿</div>
+      <div class="principle-text">
+        <h3>替換式飲食哲學</h3>
+        <p>重點唔係叫你<strong>戒口</strong>，而係用抗炎食物<strong>逐步替換</strong>現有飲食。每一餐只需做一個小改動——用橄欖油代替植物油，加一把藍莓落燕麥，用薑黃調味——長期累積才是真正的改變。</p>
+      </div>
+    </div>
+
+    <div class="tips-row">
+      <div class="tip-pill">
+        <span class="emoji">😴</span>
+        <p>充足睡眠 7–9 小時，讓身體自行修復</p>
+      </div>
+      <div class="tip-pill">
+        <span class="emoji">🏃</span>
+        <p>定期中等強度運動，每週至少 150 分鐘</p>
+      </div>
+      <div class="tip-pill">
+        <span class="emoji">🧘</span>
+        <p>減壓冥想或深呼吸，降低皮質醇水平</p>
+      </div>
+      <div class="tip-pill">
+        <span class="emoji">💧</span>
+        <p>每日飲足夠水，協助排走炎症代謝物</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>此指南僅供參考，如有特定健康狀況請諮詢醫生或營養師。</p>
+</footer>
+
+</body>
+</html>
