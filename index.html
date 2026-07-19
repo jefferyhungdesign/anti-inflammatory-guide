@@ -3,317 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>抗炎飲食指南</title>
+<title>抗炎飲食指南 · 5大營養素</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-deep: #1a3a2a;
-    --green-mid: #2d6a4f;
-    --green-soft: #52b788;
-    --green-pale: #d8f3dc;
-    --cream: #faf7f2;
-    --warm-white: #ffffff;
-    --text-dark: #1c1c1a;
-    --text-mid: #4a4a45;
-    --text-muted: #8a8a82;
-    --amber: #d4860a;
-    --amber-pale: #fef3cd;
-    --coral: #c0392b;
-    --coral-pale: #fdecea;
-    --blue-pale: #e8f4f8;
-    --blue-mid: #1a6b8a;
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-  }
+:root {
+  --dark-bg: #2b3a34;
+  --green-deep: #1a3a2a;
+  --green-mid: #5a7a3a;
+  --green-soft: #8aaa50;
+  --green-pale: #e8f0d0;
+  --cream-bg: #f5f0e8;
+  --cream-card: #faf6ec;
+  --amber: #c8860a;
+  --amber-light: #f0a830;
+  --text-dark: #1c2018;
+  --text-mid: #4a4a40;
+  --text-muted: #888878;
+  --white: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--cream-bg); color: var(--text-dark); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; line-height: 1.7; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* HERO */
+.hero { background: var(--dark-bg); padding: 64px 24px 72px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:-80px; right:-80px; width:360px; height:360px; border-radius:50%; background:rgba(138,170,80,0.1); }
+.hero::after { content:''; position:absolute; bottom:-60px; left:-60px; width:240px; height:240px; border-radius:50%; background:rgba(138,170,80,0.07); }
+.hero-eyebrow { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--green-soft); margin-bottom:16px; font-weight:500; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(32px,6vw,56px); font-weight:700; color:#fff; line-height:1.2; margin-bottom:16px; }
+.hero h1 span { color:var(--amber-light); }
+.hero-sub { font-size:15px; color:rgba(255,255,255,0.55); max-width:520px; margin:0 auto 32px; }
 
-  body {
-    background: var(--cream);
-    color: var(--text-dark);
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-  }
+/* NUTRIENT PILLS */
+.nutrient-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:8px; }
+.nutrient-pill { background:rgba(255,255,255,0.1); border:1.5px solid var(--green-soft); border-radius:50px; padding:10px 24px; color:#fff; font-size:15px; font-weight:500; font-family:'Noto Serif TC',serif; }
+.nutrient-pill.highlight { background:rgba(200,134,10,0.2); border-color:var(--amber-light); color:var(--amber-light); font-size:18px; padding:12px 28px; }
 
-  /* HERO */
-  .hero {
-    background: var(--green-deep);
-    padding: 72px 24px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    background: rgba(82,183,136,0.12);
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; left: -40px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(82,183,136,0.08);
-  }
-  .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--green-soft);
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-  .hero h1 {
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(36px, 6vw, 60px);
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .hero h1 span {
-    color: var(--green-soft);
-  }
-  .hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.6);
-    max-width: 500px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
+/* LAYOUT */
+.container { max-width:980px; margin:0 auto; padding:0 24px; }
+section { padding:56px 0; }
+section+section { border-top:1px solid var(--border); }
+.section-label { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--green-mid); font-weight:500; margin-bottom:8px; }
+.section-title { font-family:'Noto Serif TC',serif; font-size:clamp(20px,3.5vw,28px); font-weight:600; color:var(--green-deep); margin-bottom:8px; }
+.section-sub { font-size:14px; color:var(--text-muted); margin-bottom:32px; }
 
-  /* LAYOUT */
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+/* FOOD GRID (icon style like screenshot) */
+.food-icon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:16px; }
+.food-icon-card { background:var(--cream-card); border-radius:var(--radius-md); border:1.5px solid var(--green-soft); overflow:hidden; text-align:center; transition:transform 0.2s,box-shadow 0.2s; }
+.food-icon-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.food-icon-top { background:var(--cream-card); padding:20px 16px 14px; font-size:40px; line-height:1; }
+.food-icon-label { background:var(--green-mid); color:#fff; font-size:14px; font-weight:500; padding:8px 4px; }
+.food-icon-nutrients { background:var(--green-pale); padding:8px 10px; font-size:11px; color:var(--green-deep); line-height:1.6; text-align:left; }
 
-  /* SECTION */
-  section { padding: 56px 0; }
-  section + section { border-top: 1px solid rgba(0,0,0,0.06); }
+/* NUTRIENT DETAIL TABLE */
+.nutrient-section { margin-bottom:40px; }
+.nutrient-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding:14px 20px; background:var(--dark-bg); border-radius:var(--radius-md); }
+.nutrient-header-icon { font-size:28px; }
+.nutrient-header-text h3 { font-family:'Noto Serif TC',serif; font-size:18px; color:#fff; font-weight:600; }
+.nutrient-header-text p { font-size:13px; color:rgba(255,255,255,0.55); }
+.table-wrap { overflow-x:auto; border-radius:var(--radius-md); border:1px solid var(--border); }
+table { width:100%; border-collapse:collapse; background:var(--white); font-size:13px; }
+thead th { background:var(--green-deep); color:rgba(255,255,255,0.85); font-weight:400; font-size:11px; letter-spacing:.5px; padding:11px 14px; text-align:left; }
+tbody tr { border-bottom:1px solid rgba(0,0,0,0.05); }
+tbody tr:last-child { border-bottom:none; }
+tbody tr:hover { background:var(--cream-card); }
+tbody td { padding:11px 14px; color:var(--text-mid); vertical-align:top; line-height:1.6; }
+tbody td:first-child { font-weight:500; color:var(--text-dark); white-space:nowrap; }
+.tag { display:inline-block; background:var(--green-pale); color:var(--green-deep); border-radius:4px; padding:1px 7px; font-size:11px; margin:1px 2px; }
+.tag.amber { background:#fef3cd; color:#854f0b; }
+.tag.blue { background:#e8f4f8; color:#1a6b8a; }
 
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--green-mid);
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  .section-title {
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(22px, 3.5vw, 30px);
-    font-weight: 600;
-    color: var(--green-deep);
-    margin-bottom: 32px;
-    line-height: 1.3;
-  }
+/* WEEKLY PLAN */
+.week-tabs { display:flex; gap:6px; margin-bottom:24px; flex-wrap:wrap; }
+.week-tab { padding:8px 18px; border-radius:50px; font-size:13px; cursor:pointer; border:1.5px solid var(--green-mid); background:transparent; color:var(--green-mid); font-family:inherit; transition:all 0.15s; }
+.week-tab.active, .week-tab:hover { background:var(--green-mid); color:#fff; }
+.day-plan { display:none; }
+.day-plan.active { display:block; }
+.day-plan-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:16px; }
+.meal-card { background:var(--white); border-radius:var(--radius-md); border:1px solid var(--border); overflow:hidden; }
+.meal-card-header { background:var(--green-mid); padding:10px 14px; }
+.meal-card-header span { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); font-weight:500; }
+.meal-card-body { padding:14px; }
+.meal-food { font-size:14px; color:var(--text-dark); margin-bottom:10px; line-height:1.6; }
+.meal-nutrients-title { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px; font-weight:500; }
+.nutrient-tags { display:flex; flex-wrap:wrap; gap:4px; }
 
-  /* FOOD CARDS GRID */
-  .food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .food-card {
-    background: var(--warm-white);
-    border-radius: var(--radius-md);
-    padding: 20px 22px;
-    border: 1px solid rgba(0,0,0,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .food-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-  }
-  .food-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-  .food-icon {
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  .food-card-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-dark);
-  }
-  .food-items {
-    font-size: 13px;
-    color: var(--text-mid);
-    margin-bottom: 10px;
-    line-height: 1.6;
-  }
-  .food-tip {
-    font-size: 12px;
-    color: var(--green-mid);
-    background: var(--green-pale);
-    border-radius: var(--radius-sm);
-    padding: 7px 10px;
-    line-height: 1.5;
-  }
-  .food-tip::before { content: '💡 '; }
+/* NUTRIENT DAILY SUMMARY */
+.day-summary { background:var(--dark-bg); border-radius:var(--radius-md); padding:20px 24px; }
+.day-summary h4 { font-family:'Noto Serif TC',serif; font-size:15px; color:var(--amber-light); margin-bottom:14px; }
+.summary-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+.summary-item { text-align:center; }
+.summary-nutrient { font-size:14px; font-weight:600; color:#fff; margin-bottom:4px; }
+.summary-bar-wrap { background:rgba(255,255,255,0.1); border-radius:4px; height:6px; margin-bottom:4px; }
+.summary-bar { height:6px; border-radius:4px; background:var(--green-soft); }
+.summary-pct { font-size:11px; color:rgba(255,255,255,0.5); }
+.summary-sources { margin-top:12px; font-size:12px; color:rgba(255,255,255,0.6); line-height:1.8; }
 
-  /* TABLE */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(0,0,0,0.08);
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--warm-white);
-    font-size: 14px;
-  }
-  thead th {
-    background: var(--green-deep);
-    color: rgba(255,255,255,0.85);
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    padding: 13px 16px;
-    text-align: left;
-  }
-  thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
-  thead th:last-child { border-radius: 0 var(--radius-md) 0 0; }
-  tbody tr { border-bottom: 1px solid rgba(0,0,0,0.05); }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: var(--cream); }
-  tbody td { padding: 12px 16px; color: var(--text-mid); vertical-align: top; line-height: 1.6; }
-  tbody td:first-child { color: var(--text-dark); font-weight: 500; }
+/* PRINCIPLE */
+.principle { background:var(--dark-bg); border-radius:var(--radius-lg); padding:36px 40px; display:flex; gap:28px; align-items:flex-start; margin-top:32px; }
+.principle-icon { font-size:36px; flex-shrink:0; }
+.principle-text h3 { font-family:'Noto Serif TC',serif; font-size:20px; color:#fff; margin-bottom:10px; }
+.principle-text p { font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8; }
+.principle-text strong { color:var(--green-soft); font-weight:500; }
 
-  /* WEEK PLAN */
-  .week-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-  }
-  .day-card {
-    background: var(--warm-white);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.06);
-    transition: transform 0.2s;
-  }
-  .day-card:hover { transform: translateY(-2px); }
-  .day-header {
-    background: var(--green-mid);
-    padding: 12px 16px;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .day-name {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-  }
-  .day-en {
-    font-size: 11px;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .day-body { padding: 14px 16px; }
-  .meal-row { margin-bottom: 11px; }
-  .meal-row:last-child { margin-bottom: 0; }
-  .meal-type {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 3px;
-  }
-  .meal-content {
-    font-size: 13px;
-    color: var(--text-dark);
-    line-height: 1.55;
-  }
-  .day-tip {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    font-size: 12px;
-    color: var(--green-mid);
-  }
+.tips-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:28px; }
+.tip-pill { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; text-align:center; }
+.tip-pill .emoji { font-size:24px; margin-bottom:8px; display:block; }
+.tip-pill p { font-size:13px; color:var(--text-mid); line-height:1.55; }
 
-  /* PRINCIPLE BANNER */
-  .principle {
-    background: var(--green-deep);
-    border-radius: var(--radius-lg);
-    padding: 40px 40px;
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    margin-top: 40px;
-  }
-  .principle-icon {
-    font-size: 36px;
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 4px;
-  }
-  .principle-text h3 {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  .principle-text p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.8;
-  }
-  .principle-text strong { color: var(--green-soft); font-weight: 500; }
+footer { background:var(--dark-bg); padding:28px 24px; text-align:center; }
+footer p { font-size:12px; color:rgba(255,255,255,0.35); }
 
-  /* TIPS ROW */
-  .tips-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-top: 32px;
-  }
-  .tip-pill {
-    background: var(--warm-white);
-    border: 1px solid rgba(0,0,0,0.07);
-    border-radius: var(--radius-md);
-    padding: 16px 18px;
-    text-align: center;
-  }
-  .tip-pill .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
-  .tip-pill p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
-
-  /* FOOTER */
-  footer {
-    background: var(--green-deep);
-    padding: 32px 24px;
-    text-align: center;
-  }
-  footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
-
-  @media (max-width: 600px) {
-    .principle { flex-direction: column; gap: 16px; padding: 28px 24px; }
-    .food-grid, .week-grid { grid-template-columns: 1fr; }
-    section { padding: 40px 0; }
-  }
+@media(max-width:640px){
+  .day-plan-grid { grid-template-columns:1fr; }
+  .summary-grid { grid-template-columns:repeat(3,1fr); }
+  .food-icon-grid { grid-template-columns:repeat(3,1fr); }
+  .principle { flex-direction:column; padding:24px; }
+}
 </style>
 </head>
 <body>
@@ -321,174 +132,202 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">天然食療 · 由內而外</div>
-  <h1>抗炎<span>飲食</span>指南</h1>
-  <p class="hero-sub">以替換式飲食逐步增加抗炎食物，配合充足休息、運動與減壓，達到最佳效果。</p>
+  <h1>抗炎飲食 +<br><span>5大營養素</span>指南</h1>
+  <p class="hero-sub">結合抗炎食物與人體五大關鍵營養素，每日飲食一目了然。</p>
+  <div class="nutrient-pills">
+    <div class="nutrient-pill">鈣</div>
+    <div class="nutrient-pill">鎂</div>
+    <div class="nutrient-pill highlight">維生素 D</div>
+    <div class="nutrient-pill">鋅</div>
+    <div class="nutrient-pill">硒</div>
+  </div>
 </div>
 
-<!-- FOOD CATEGORIES -->
+<!-- FOOD ICONS: HIGH CALCIUM -->
 <section>
   <div class="container">
-    <div class="section-label">食物分類</div>
-    <h2 class="section-title">九大抗炎食物類別</h2>
-    <div class="food-grid">
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#e8f5e9">🥦</div>
-          <div class="food-card-title">蔬菜</div>
-        </div>
-        <div class="food-items">深色綠葉蔬菜、西蘭花、椰菜花、番茄、菠菜</div>
-        <div class="food-tip">番茄配橄欖油或黑胡椒，可大大提高茄紅素吸收；菠菜配檸檬汁提升鐵質吸收</div>
+    <div class="section-label">高鈣食物</div>
+    <h2 class="section-title">高鈣食物怎麼吃？</h2>
+    <p class="section-sub">鈣質強健骨骼與牙齒，亦協助肌肉收縮與神經傳導</p>
+    <div class="food-icon-grid">
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥛</div>
+        <div class="food-icon-label">牛奶</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>維D・蛋白質・B12</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#e8f0fb">🫐</div>
-          <div class="food-card-title">水果</div>
-        </div>
-        <div class="food-items">藍莓（花青素）、蘋果（連皮保留槲皮素）</div>
-        <div class="food-tip">蘋果建議選有機，連皮食用效果更好</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥢</div>
+        <div class="food-icon-label">板豆腐</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>鎂・鋅・植物蛋白</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#e0f7fa">🐟</div>
-          <div class="food-card-title">魚類 · 海產</div>
-        </div>
-        <div class="food-items">三文魚等深海魚（Omega-3）、海藻、紫菜、海帶</div>
-        <div class="food-tip">Omega-3 可直接抑制發炎因子；海藻調節免疫系統</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🖤</div>
+        <div class="food-icon-label">黑芝麻</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>鎂・鐵・抗氧化</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#fff8e1">🧄</div>
-          <div class="food-card-title">香料</div>
-        </div>
-        <div class="food-items">薑黃、大蒜（大蒜素）、薑</div>
-        <div class="food-tip">薑黃必須配黑胡椒或油脂，才能有效吸收</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🌰</div>
+        <div class="food-icon-label">核桃</div>
+        <div class="food-icon-nutrients">鈣 ★★<br>Omega-3・鎂・鋅</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#f3e5f5">🥜</div>
-          <div class="food-card-title">堅果</div>
-        </div>
-        <div class="food-items">核桃、杏仁、巴西堅果</div>
-        <div class="food-tip">原味、無鹽無糖，每日一小把，多樣化輪換</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🐟</div>
+        <div class="food-icon-label">小魚乾</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>維D・Omega-3・硒</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#fffde7">🫒</div>
-          <div class="food-card-title">油脂</div>
-        </div>
-        <div class="food-items">特級初榨橄欖油</div>
-        <div class="food-tip">不適合高溫煮食；避免葵花油、粟米油、大豆油等 Omega-6 過高植物油</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥬</div>
+        <div class="food-icon-label">菠菜</div>
+        <div class="food-icon-nutrients">鈣 ★★<br>鐵・鎂・維K</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#fce4ec">🥛</div>
-          <div class="food-card-title">發酵食品</div>
-        </div>
-        <div class="food-items">乳酪、泡菜</div>
-        <div class="food-tip">益生菌改善腸道健康，從而減少系統性發炎</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥦</div>
+        <div class="food-icon-label">芥藍菜</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>維C・維K・抗炎</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#e8f5e9">🫘</div>
-          <div class="food-card-title">豆類</div>
-        </div>
-        <div class="food-items">扁豆等優質植物蛋白</div>
-        <div class="food-tip">浸泡後再烹調，可有效減少脹氣</div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🌿</div>
+        <div class="food-icon-label">羽衣甘藍</div>
+        <div class="food-icon-nutrients">鈣 ★★★<br>維C・維K・花青素</div>
       </div>
-
-      <div class="food-card">
-        <div class="food-card-header">
-          <div class="food-icon" style="background:#f1f8e9">🍵</div>
-          <div class="food-card-title">其他超級食物</div>
-        </div>
-        <div class="food-items">黑朱古力（85%+）、生蜜 / 麥蘆卡蜜、蛋、綠茶、亞麻籽、燕麥、茴香</div>
-        <div class="food-tip">綠茶茶多酚可延緩衰老，建議每日 2–3 杯</div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- TABLE SUMMARY -->
+<!-- FOOD ICONS: HIGH MAGNESIUM -->
 <section>
   <div class="container">
-    <div class="section-label">速查表</div>
-    <h2 class="section-title">食物功效總覽</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>類別</th>
-            <th>代表食物</th>
-            <th>主要功效</th>
-            <th>食用貼士</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>蔬菜</td>
-            <td>西蘭花、番茄、菠菜、深綠葉菜</td>
-            <td>抗氧化、激活解毒系統、茄紅素抗炎</td>
-            <td>番茄配油脂 / 黑胡椒；菠菜配檸檬汁</td>
-          </tr>
-          <tr>
-            <td>水果</td>
-            <td>藍莓、有機蘋果</td>
-            <td>花青素消炎、槲皮素抗氧化</td>
-            <td>蘋果連皮食用</td>
-          </tr>
-          <tr>
-            <td>魚類 · 海產</td>
-            <td>三文魚、海藻、紫菜、海帶</td>
-            <td>Omega-3 抑制發炎因子、調節免疫</td>
-            <td>每週 2–3 次深海魚</td>
-          </tr>
-          <tr>
-            <td>香料</td>
-            <td>薑黃、大蒜、薑</td>
-            <td>薑黃素強效消炎、大蒜素抗菌</td>
-            <td>薑黃配黑胡椒或油脂</td>
-          </tr>
-          <tr>
-            <td>堅果</td>
-            <td>核桃、杏仁、巴西堅果</td>
-            <td>健康脂肪、抗氧化礦物質</td>
-            <td>原味無鹽，每日一小把</td>
-          </tr>
-          <tr>
-            <td>油脂</td>
-            <td>特級初榨橄欖油</td>
-            <td>多酚消炎、心臟保護</td>
-            <td>低溫或涼拌用；避免高 Omega-6 植物油</td>
-          </tr>
-          <tr>
-            <td>發酵食品</td>
-            <td>乳酪、泡菜</td>
-            <td>益生菌修復腸道、減少發炎</td>
-            <td>選低糖原味版本</td>
-          </tr>
-          <tr>
-            <td>豆類</td>
-            <td>扁豆</td>
-            <td>植物蛋白、穩定血糖</td>
-            <td>浸泡後烹調減少脹氣</td>
-          </tr>
-          <tr>
-            <td>其他</td>
-            <td>黑朱古力、生蜜、蛋、綠茶、亞麻籽、燕麥</td>
-            <td>茶多酚、Omega-3、優質蛋白</td>
-            <td>綠茶每日 2–3 杯；朱古力適量</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="section-label">含鎂食物</div>
+    <h2 class="section-title">含鎂食物怎麼吃？</h2>
+    <p class="section-sub">鎂參與超過300種酶反應，對能量代謝、肌肉放鬆與睡眠尤為重要</p>
+    <div class="food-icon-grid">
+      <div class="food-icon-card">
+        <div class="food-icon-top">🌾</div>
+        <div class="food-icon-label">燕麥</div>
+        <div class="food-icon-nutrients">鎂 ★★★<br>纖維・鋅・B群</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🫘</div>
+        <div class="food-icon-label">黑豆</div>
+        <div class="food-icon-nutrients">鎂 ★★★<br>鈣・鋅・植物蛋白</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥬</div>
+        <div class="food-icon-label">青江菜</div>
+        <div class="food-icon-nutrients">鎂 ★★<br>鈣・維C・葉酸</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🥗</div>
+        <div class="food-icon-label">小白菜</div>
+        <div class="food-icon-nutrients">鎂 ★★<br>鈣・維K・抗氧化</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🍌</div>
+        <div class="food-icon-label">香蕉</div>
+        <div class="food-icon-nutrients">鎂 ★★<br>鉀・維B6・能量</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🍂</div>
+        <div class="food-icon-label">桂圓</div>
+        <div class="food-icon-nutrients">鎂 ★★<br>鐵・維C・抗氧化</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🌻</div>
+        <div class="food-icon-label">葵花籽</div>
+        <div class="food-icon-nutrients">鎂 ★★★<br>維E・硒・健康脂肪</div>
+      </div>
+      <div class="food-icon-card">
+        <div class="food-icon-top">🤍</div>
+        <div class="food-icon-label">杏仁</div>
+        <div class="food-icon-nutrients">鎂 ★★★<br>鈣・維E・Omega-9</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRIENT BREAKDOWN TABLE -->
+<section>
+  <div class="container">
+    <div class="section-label">營養分析</div>
+    <h2 class="section-title">每種食物的營養詳解</h2>
+    <p class="section-sub">涵蓋抗炎食物 + 高鈣 + 含鎂食物，對應5大營養素</p>
+
+    <!-- 鈣 -->
+    <div class="nutrient-section">
+      <div class="nutrient-header">
+        <div class="nutrient-header-icon">🦴</div>
+        <div class="nutrient-header-text">
+          <h3>鈣（Calcium）</h3>
+          <p>骨骼 · 牙齒 · 肌肉收縮 · 神經傳導</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>食物</th><th>鈣含量</th><th>其他重要營養</th><th>最佳食用方式</th></tr></thead>
+          <tbody>
+            <tr><td>🥛 牛奶</td><td>約120mg/100ml</td><td><span class="tag">維生素D</span><span class="tag">蛋白質</span><span class="tag">B12</span></td><td>直接飲用；配燕麥或可可</td></tr>
+            <tr><td>🥢 板豆腐</td><td>約350mg/100g</td><td><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">植物蛋白</span><span class="tag">異黃酮</span></td><td>蒸食或煮湯，避免油炸</td></tr>
+            <tr><td>🖤 黑芝麻</td><td>約780mg/100g</td><td><span class="tag">鎂</span><span class="tag">鐵</span><span class="tag">芝麻素抗氧化</span></td><td>磨粉加入燕麥或冰沙</td></tr>
+            <tr><td>🌰 核桃</td><td>約98mg/100g</td><td><span class="tag">Omega-3</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">抗炎</span></td><td>原味生食，每日一小把</td></tr>
+            <tr><td>🐟 小魚乾</td><td>約2213mg/100g</td><td><span class="tag">維生素D</span><span class="tag">Omega-3</span><span class="tag">硒</span><span class="tag">蛋白質</span></td><td>少量加湯或炒菜；注意鈉含量</td></tr>
+            <tr><td>🥬 菠菜</td><td>約99mg/100g</td><td><span class="tag">鐵</span><span class="tag">鎂</span><span class="tag">維生素K</span><span class="tag">葉酸</span></td><td>加檸檬汁提升鐵、鈣吸收</td></tr>
+            <tr><td>🥦 芥藍菜</td><td>約128mg/100g</td><td><span class="tag">維生素C</span><span class="tag">維生素K</span><span class="tag">十字花科抗炎</span></td><td>快炒或蒸，保留維C</td></tr>
+            <tr><td>🌿 羽衣甘藍</td><td>約150mg/100g</td><td><span class="tag">維生素C</span><span class="tag">維生素K</span><span class="tag">花青素</span><span class="tag">抗氧化</span></td><td>沙律或打冰沙，生食效果更好</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 鎂 -->
+    <div class="nutrient-section">
+      <div class="nutrient-header">
+        <div class="nutrient-header-icon">⚡</div>
+        <div class="nutrient-header-text">
+          <h3>鎂（Magnesium）</h3>
+          <p>能量代謝 · 肌肉放鬆 · 睡眠質素 · 300+種酶反應</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>食物</th><th>鎂含量</th><th>其他重要營養</th><th>最佳食用方式</th></tr></thead>
+          <tbody>
+            <tr><td>🌾 燕麥</td><td>約177mg/100g</td><td><span class="tag">纖維</span><span class="tag">鋅</span><span class="tag">B群</span><span class="tag">β-葡聚糖</span></td><td>隔夜燕麥加藍莓核桃</td></tr>
+            <tr><td>🫘 黑豆</td><td>約160mg/100g</td><td><span class="tag">鈣</span><span class="tag">鋅</span><span class="tag">植物蛋白</span><span class="tag">花青素</span></td><td>浸泡一夜再烹調，減少脹氣</td></tr>
+            <tr><td>🥬 青江菜</td><td>約19mg/100g</td><td><span class="tag">鈣</span><span class="tag">維生素C</span><span class="tag">葉酸</span><span class="tag">鐵</span></td><td>快炒或汆燙，配蒜蓉</td></tr>
+            <tr><td>🥗 小白菜</td><td>約17mg/100g</td><td><span class="tag">鈣</span><span class="tag">維生素K</span><span class="tag">抗氧化多酚</span></td><td>生吃沙律或汆燙</td></tr>
+            <tr><td>🍌 香蕉</td><td>約27mg/100g</td><td><span class="tag">鉀</span><span class="tag">維生素B6</span><span class="tag">色氨酸助眠</span></td><td>早餐直接食或加入冰沙</td></tr>
+            <tr><td>🍂 桂圓</td><td>約10mg/100g</td><td><span class="tag">鐵</span><span class="tag">維生素C</span><span class="tag">多酚抗氧化</span></td><td>適量食用，糖份較高</td></tr>
+            <tr><td>🌻 葵花籽</td><td>約325mg/100g</td><td><span class="tag">維生素E</span><span class="tag">硒</span><span class="tag">健康脂肪</span><span class="tag">鋅</span></td><td>原味烤香撒在沙律上</td></tr>
+            <tr><td>🤍 杏仁</td><td>約270mg/100g</td><td><span class="tag">鈣</span><span class="tag">維生素E</span><span class="tag">Omega-9</span><span class="tag">抗炎</span></td><td>每日10-15粒，原味生食</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 維生素D, 鋅, 硒 -->
+    <div class="nutrient-section">
+      <div class="nutrient-header">
+        <div class="nutrient-header-icon">☀️</div>
+        <div class="nutrient-header-text">
+          <h3>維生素D · 鋅 · 硒</h3>
+          <p>免疫調節 · 抗氧化 · 甲狀腺功能 · 傷口癒合</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>食物</th><th>主要營養素</th><th>功效</th><th>貼士</th></tr></thead>
+          <tbody>
+            <tr><td>🐟 三文魚</td><td><span class="tag amber">維生素D ★★★</span><span class="tag">Omega-3</span><span class="tag blue">硒</span></td><td>直接抑制發炎因子，強化免疫</td><td>每週2-3次，烤或蒸最佳</td></tr>
+            <tr><td>🥚 蛋（蛋黃）</td><td><span class="tag amber">維生素D ★★</span><span class="tag blue">硒</span><span class="tag">鋅</span></td><td>優質蛋白質，蛋黃含卵磷脂護腦</td><td>水煮或炒，配蔬菜</td></tr>
+            <tr><td>🌰 巴西堅果</td><td><span class="tag blue">硒 ★★★</span><span class="tag">鎂</span><span class="tag">鋅</span></td><td>每日2-3粒即達每日硒需求量</td><td>每日不超過3粒，防硒過量</td></tr>
+            <tr><td>🧄 大蒜</td><td><span class="tag">鋅 ★★</span><span class="tag blue">硒</span><span class="tag">大蒜素</span></td><td>抗菌、提升免疫、降低發炎</td><td>拍碎靜置10分鐘再煮，激活大蒜素</td></tr>
+            <tr><td>🫘 扁豆</td><td><span class="tag">鋅 ★★</span><span class="tag">鎂</span><span class="tag">植物蛋白</span></td><td>穩定血糖，支援免疫系統</td><td>浸泡後煮湯或做沙律</td></tr>
+            <tr><td>🐟 小魚乾</td><td><span class="tag amber">維生素D ★★</span><span class="tag blue">硒 ★★</span><span class="tag">鈣</span></td><td>骨骼健康，鈣D同補更有效</td><td>少量入湯，注意鈉含量</td></tr>
+            <tr><td>🌻 葵花籽</td><td><span class="tag blue">硒 ★★</span><span class="tag">鋅</span><span class="tag">維生素E</span></td><td>抗氧化協同作用，保護細胞</td><td>撒在沙律或燕麥上</td></tr>
+            <tr><td>🥢 板豆腐</td><td><span class="tag">鋅 ★★</span><span class="tag">鈣</span><span class="tag">鎂</span></td><td>植物性鋅來源，支援傷口癒合</td><td>配維C食物提升鋅吸收</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
@@ -497,198 +336,270 @@
 <section>
   <div class="container">
     <div class="section-label">每週餐單</div>
-    <h2 class="section-title">星期一至日 抗炎食譜</h2>
-    <div class="week-grid">
+    <h2 class="section-title">星期一至五 · 每日營養追蹤</h2>
+    <p class="section-sub">每餐標示攝取的5大營養素，一目了然</p>
 
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期一</span>
-          <span class="day-en">Mon</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">燕麥粥 + 藍莓 + 核桃</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">三文魚沙律（橄欖油 + 菠菜 + 番茄 + 檸檬汁）</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">薑黃雞扒 + 西蘭花 + 糙米</div>
-          </div>
-          <div class="day-tip">🍵 綠茶 2–3 杯</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期二</span>
-          <span class="day-en">Tue</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">原味乳酪 + 蘋果片（連皮）+ 亞麻籽</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">扁豆湯 + 全麥麵包 + 大蒜炒深綠葉菜</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">蒸紫菜卷三文魚 + 薑汁炒椰菜花</div>
-          </div>
-          <div class="day-tip">🍫 85%+ 黑朱古力 1–2 格</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期三</span>
-          <span class="day-en">Wed</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">炒蛋（橄欖油）+ 全麥多士 + 番茄</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">海帶豆腐湯 + 薑黃炒西蘭花</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">烤三文魚 + 菠菜（檸檬汁）+ 烤番茄</div>
-          </div>
-          <div class="day-tip">🥜 杏仁一小把</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期四</span>
-          <span class="day-en">Thu</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">燕麥 + 核桃 + 生蜜少許</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">泡菜炒糙米飯 + 煎蛋</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">大蒜薑炒深海魚 + 茴香沙律 + 扁豆</div>
-          </div>
-          <div class="day-tip">🍵 綠茶</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期五</span>
-          <span class="day-en">Fri</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">藍莓冰沙（乳酪 + 亞麻籽 + 菠菜）</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">薑黃椰菜花湯 + 全麥捲餅 + 大蒜炒菜</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">烤三文魚 + 紫菜沙律 + 橄欖油番茄</div>
-          </div>
-          <div class="day-tip">🌰 巴西堅果 2–3 粒</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期六</span>
-          <span class="day-en">Sat</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">蛋餅 + 大蒜菠菜 + 蘋果（連皮）</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">扁豆沙律 + 海藻湯 + 番茄（橄欖油 + 黑胡椒）</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">薑蒸魚 + 西蘭花炒蒜 + 糙米</div>
-          </div>
-          <div class="day-tip">🍫 85%+ 黑朱古力</div>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-header">
-          <span class="day-name">星期日</span>
-          <span class="day-en">Sun</span>
-        </div>
-        <div class="day-body">
-          <div class="meal-row">
-            <div class="meal-type">早餐</div>
-            <div class="meal-content">燕麥 + 藍莓 + 杏仁 + 麥蘆卡蜜</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">午餐</div>
-            <div class="meal-content">泡菜豆腐湯 + 薑黃炒雜菜 + 全麥飯</div>
-          </div>
-          <div class="meal-row">
-            <div class="meal-type">晚餐</div>
-            <div class="meal-content">烤三文魚 + 茴香番茄沙律 + 海帶湯</div>
-          </div>
-          <div class="day-tip">🍵 綠茶 · 🥜 核桃</div>
-        </div>
-      </div>
-
+    <div class="week-tabs">
+      <button class="week-tab active" onclick="showDay('mon')">星期一</button>
+      <button class="week-tab" onclick="showDay('tue')">星期二</button>
+      <button class="week-tab" onclick="showDay('wed')">星期三</button>
+      <button class="week-tab" onclick="showDay('thu')">星期四</button>
+      <button class="week-tab" onclick="showDay('fri')">星期五</button>
     </div>
+
+    <!-- MON -->
+    <div class="day-plan active" id="day-mon">
+      <div class="day-plan-grid">
+        <div class="meal-card">
+          <div class="meal-card-header"><span>早餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">燕麥粥 + 黑芝麻 + 藍莓 + 核桃 + 牛奶</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★★</span><span class="tag amber">鎂 ★★★</span><span class="tag">Omega-3</span><span class="tag blue">維D</span><span class="tag">花青素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>午餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">三文魚沙律（橄欖油 + 菠菜 + 番茄 + 羽衣甘藍 + 檸檬汁）</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★★</span><span class="tag blue">硒 ★★</span><span class="tag">Omega-3</span><span class="tag">鈣</span><span class="tag">維K</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>晚餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">薑黃板豆腐 + 芥藍菜 + 大蒜 + 糙米</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★★</span><span class="tag amber">鎂 ★★</span><span class="tag">鋅</span><span class="tag">大蒜素</span><span class="tag">薑黃素</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-summary">
+        <h4>⭐ 星期一營養素總結</h4>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-nutrient">鈣</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:85%"></div></div><div class="summary-pct">85%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鎂</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:80%"></div></div><div class="summary-pct">80%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">維D</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:90%"></div></div><div class="summary-pct">90%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鋅</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:65%"></div></div><div class="summary-pct">65%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">硒</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:70%"></div></div><div class="summary-pct">70%</div></div>
+        </div>
+        <div class="summary-sources">💡 主要鈣來源：牛奶 + 黑芝麻 + 板豆腐 ｜ 維D來源：三文魚 ｜ 硒來源：三文魚 ｜ 小食建議：巴西堅果2粒（硒++）+ 綠茶2杯</div>
+      </div>
+    </div>
+
+    <!-- TUE -->
+    <div class="day-plan" id="day-tue">
+      <div class="day-plan-grid">
+        <div class="meal-card">
+          <div class="meal-card-header"><span>早餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">原味乳酪 + 藍莓 + 葵花籽 + 蘋果（連皮）+ 亞麻籽</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★</span><span class="tag blue">硒 ★★</span><span class="tag amber">鎂 ★★</span><span class="tag">益生菌</span><span class="tag">花青素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>午餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">黑豆扁豆湯 + 全麥麵包 + 大蒜炒青江菜 + 小白菜</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">鎂 ★★★</span><span class="tag">鋅 ★★</span><span class="tag">鈣</span><span class="tag">植物蛋白</span><span class="tag">大蒜素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>晚餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">蒸紫菜卷三文魚 + 薑汁炒芥藍菜 + 板豆腐味噌湯</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★★</span><span class="tag blue">硒 ★★</span><span class="tag">鈣 ★★</span><span class="tag">Omega-3</span><span class="tag">碘</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-summary">
+        <h4>⭐ 星期二營養素總結</h4>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-nutrient">鈣</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:75%"></div></div><div class="summary-pct">75%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鎂</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:90%"></div></div><div class="summary-pct">90%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">維D</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:85%"></div></div><div class="summary-pct">85%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鋅</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:75%"></div></div><div class="summary-pct">75%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">硒</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:80%"></div></div><div class="summary-pct">80%</div></div>
+        </div>
+        <div class="summary-sources">💡 主要鎂來源：黑豆 + 燕麥 + 葵花籽 ｜ 硒來源：三文魚 + 葵花籽 ｜ 小食建議：杏仁10粒（鎂++）+ 黑朱古力1格 + 綠茶</div>
+      </div>
+    </div>
+
+    <!-- WED -->
+    <div class="day-plan" id="day-wed">
+      <div class="day-plan-grid">
+        <div class="meal-card">
+          <div class="meal-card-header"><span>早餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">炒蛋（橄欖油）+ 全麥多士 + 番茄 + 菠菜</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★</span><span class="tag blue">硒 ★★</span><span class="tag">鈣</span><span class="tag">鋅</span><span class="tag">卵磷脂</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>午餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">海帶板豆腐湯 + 小魚乾炒芥藍菜 + 黑芝麻糙米</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★★</span><span class="tag amber">維D ★★</span><span class="tag blue">硒 ★</span><span class="tag">碘</span><span class="tag">鎂</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>晚餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">烤三文魚 + 羽衣甘藍沙律 + 核桃 + 杏仁</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★★</span><span class="tag blue">硒 ★★</span><span class="tag amber">鎂 ★★</span><span class="tag">Omega-3</span><span class="tag">維E</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-summary">
+        <h4>⭐ 星期三營養素總結</h4>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-nutrient">鈣</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:90%"></div></div><div class="summary-pct">90%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鎂</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:70%"></div></div><div class="summary-pct">70%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">維D</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:95%"></div></div><div class="summary-pct">95%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鋅</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:65%"></div></div><div class="summary-pct">65%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">硒</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:75%"></div></div><div class="summary-pct">75%</div></div>
+        </div>
+        <div class="summary-sources">💡 今日鈣最豐富：小魚乾 + 黑芝麻 + 板豆腐 ｜ 維D達標：蛋 + 小魚乾 + 三文魚 ｜ 小食：巴西堅果2粒（硒滿分）+ 綠茶</div>
+      </div>
+    </div>
+
+    <!-- THU -->
+    <div class="day-plan" id="day-thu">
+      <div class="day-plan-grid">
+        <div class="meal-card">
+          <div class="meal-card-header"><span>早餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">燕麥 + 香蕉 + 核桃 + 黑芝麻 + 生蜜</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">鎂 ★★★</span><span class="tag">鈣 ★★</span><span class="tag">鉀</span><span class="tag">B群</span><span class="tag">Omega-3</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>午餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">泡菜炒黑豆糙米飯 + 煎蛋 + 小白菜</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">鎂 ★★★</span><span class="tag amber">維D ★★</span><span class="tag blue">硒 ★</span><span class="tag">益生菌</span><span class="tag">花青素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>晚餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">大蒜薑炒三文魚 + 青江菜 + 扁豆湯</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★★</span><span class="tag blue">硒 ★★</span><span class="tag">鋅 ★★</span><span class="tag">Omega-3</span><span class="tag">大蒜素</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-summary">
+        <h4>⭐ 星期四營養素總結</h4>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-nutrient">鈣</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:70%"></div></div><div class="summary-pct">70%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鎂</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:95%"></div></div><div class="summary-pct">95%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">維D</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:88%"></div></div><div class="summary-pct">88%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鋅</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:80%"></div></div><div class="summary-pct">80%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">硒</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:72%"></div></div><div class="summary-pct">72%</div></div>
+        </div>
+        <div class="summary-sources">💡 今日鎂最豐富：燕麥 + 黑豆 ｜ 可補充鈣質：建議加一杯牛奶或黑芝麻糊 ｜ 小食：葵花籽一把（硒+鎂）+ 綠茶</div>
+      </div>
+    </div>
+
+    <!-- FRI -->
+    <div class="day-plan" id="day-fri">
+      <div class="day-plan-grid">
+        <div class="meal-card">
+          <div class="meal-card-header"><span>早餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">藍莓冰沙（乳酪 + 菠菜 + 亞麻籽 + 杏仁）</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★</span><span class="tag amber">鎂 ★★★</span><span class="tag">益生菌</span><span class="tag">維E</span><span class="tag">花青素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>午餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">小魚乾薑黃板豆腐 + 羽衣甘藍芥藍炒蒜 + 黑豆糙米</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag">鈣 ★★★</span><span class="tag amber">鎂 ★★</span><span class="tag amber">維D ★★</span><span class="tag blue">硒 ★</span><span class="tag">薑黃素</span>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-card-header"><span>晚餐</span></div>
+          <div class="meal-card-body">
+            <div class="meal-food">烤三文魚 + 紫菜湯 + 葵花籽沙律 + 番茄（橄欖油+黑胡椒）</div>
+            <div class="meal-nutrients-title">攝取營養素</div>
+            <div class="nutrient-tags">
+              <span class="tag amber">維D ★★★</span><span class="tag blue">硒 ★★★</span><span class="tag">Omega-3</span><span class="tag">碘</span><span class="tag">茄紅素</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-summary">
+        <h4>⭐ 星期五營養素總結</h4>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-nutrient">鈣</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:88%"></div></div><div class="summary-pct">88%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鎂</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:85%"></div></div><div class="summary-pct">85%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">維D</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:92%"></div></div><div class="summary-pct">92%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">鋅</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:70%"></div></div><div class="summary-pct">70%</div></div>
+          <div class="summary-item"><div class="summary-nutrient">硒</div><div class="summary-bar-wrap"><div class="summary-bar" style="width:95%"></div></div><div class="summary-pct">95%</div></div>
+        </div>
+        <div class="summary-sources">💡 今日硒最豐富：三文魚 + 葵花籽 ｜ 維D全週最高 ｜ 小食：巴西堅果2粒（硒達標）+ 85%黑朱古力1格 + 綠茶3杯 🎉 週末前營養最全面的一天！</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- LIFESTYLE TIPS -->
+<!-- PRINCIPLE -->
 <section>
   <div class="container">
-    <div class="section-label">生活習慣</div>
-    <h2 class="section-title">配合飲食，效果加倍</h2>
-
     <div class="principle">
       <div class="principle-icon">🌿</div>
       <div class="principle-text">
         <h3>替換式飲食哲學</h3>
-        <p>重點唔係叫你<strong>戒口</strong>，而係用抗炎食物<strong>逐步替換</strong>現有飲食。每一餐只需做一個小改動——用橄欖油代替植物油，加一把藍莓落燕麥，用薑黃調味——長期累積才是真正的改變。</p>
+        <p>重點唔係叫你<strong>戒口</strong>，而係用抗炎 + 高營養密度食物<strong>逐步替換</strong>現有飲食。每餐只需一個小改動：用橄欖油代替植物油、加黑芝麻落燕麥、配薑黃調味——長期累積才是真正的改變。</p>
       </div>
     </div>
-
     <div class="tips-row">
-      <div class="tip-pill">
-        <span class="emoji">😴</span>
-        <p>充足睡眠 7–9 小時，讓身體自行修復</p>
-      </div>
-      <div class="tip-pill">
-        <span class="emoji">🏃</span>
-        <p>定期中等強度運動，每週至少 150 分鐘</p>
-      </div>
-      <div class="tip-pill">
-        <span class="emoji">🧘</span>
-        <p>減壓冥想或深呼吸，降低皮質醇水平</p>
-      </div>
-      <div class="tip-pill">
-        <span class="emoji">💧</span>
-        <p>每日飲足夠水，協助排走炎症代謝物</p>
-      </div>
+      <div class="tip-pill"><span class="emoji">😴</span><p>充足睡眠 7–9 小時，鎂有助放鬆入睡</p></div>
+      <div class="tip-pill"><span class="emoji">☀️</span><p>每日曬太陽15分鐘，幫助身體合成維生素D</p></div>
+      <div class="tip-pill"><span class="emoji">🏃</span><p>定期中等強度運動，提升鋅與硒利用率</p></div>
+      <div class="tip-pill"><span class="emoji">🍵</span><p>每日2–3杯綠茶，茶多酚協同抗炎效果</p></div>
     </div>
   </div>
 </section>
@@ -697,5 +608,13 @@
   <p>此指南僅供參考，如有特定健康狀況請諮詢醫生或營養師。</p>
 </footer>
 
+<script>
+function showDay(day) {
+  document.querySelectorAll('.day-plan').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.week-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('day-' + day).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
